@@ -138,4 +138,4 @@ const calc = (
     return 100.0 * (1 - Math.pow(survivor[surv], Math.exp(a)));
 };
 
-export default { calc };
+export { calc };

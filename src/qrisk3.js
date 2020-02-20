@@ -1,17 +1,17 @@
-import qrisk3Female from "lib/qrisk3Female"
+import qrisk from "./lib";
 
-const calculateScore = (gender) => {
-    switch(true) {
+const calculateScore = gender => {
+    switch (true) {
         case gender === "male":
+            qrisk.maleScore();
             break;
 
         case gender === "female":
-            qrisk3Female.calc();
+            qrisk.femaleScore();
             break;
 
         default:
-            throw new Error("Invalid gender. It should be either 'male' or 'female'")
-
+            throw new Error("Invalid gender. It should be either 'male' or 'female'");
     }
     return 5;
 };
