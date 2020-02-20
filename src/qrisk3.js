@@ -13,6 +13,7 @@ const calculateScore = gender => {
         default:
             throw new Error("Invalid gender. It should be either 'male' or 'female'");
     }
+
     return 5;
 };
 
