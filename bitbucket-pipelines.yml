@@ -2,9 +2,9 @@
 image: node:10.15.0
 definitions:
     caches:
-        root_node_modules: ./node_modules
+        root-nm: ./node_modules
     cache-block: &caches
-        - root_node_modules
+        - root-nm
     steps:
         - step: &lint
             name: Lint
