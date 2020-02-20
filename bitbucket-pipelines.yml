@@ -1,0 +1,26 @@
+
+image: node:10.15.0
+definitions:
+    caches:
+        root_node_modules: ./node_modules
+    cache-block: &caches
+        - root_node_modules
+    steps:
+        - step: &lint
+            name: Lint
+            caches: *caches
+            script:
+                - yarn
+                - yarn lint
+        - step: &test
+            name: Test
+            caches: *caches
+            script:
+                - yarn
+                - yarn test
+
+pipelines:
+    default:
+        - step: *lint
+        - parallel:
+            - step: *test
