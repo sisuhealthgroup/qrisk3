@@ -1,0 +1,22 @@
+{
+    "env": {
+        "es6": true,
+        "node": true,
+        "jest": true
+    },
+    "extends": ["eslint:recommended", "plugin:node/recommended"],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "plugins": ["node","jest", "prettier", "jsdoc"],
+    "rules": {
+        "no-console": "warn",
+        "semi": ["error", "always"],
+        "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
+        "camelcase": [1, { "properties": "always" }],
+        "prettier/prettier": "error",
+        "node/no-unsupported-features/es-syntax": 1,
+        "node/no-unpublished-require": 1
+    }
+}
