@@ -1,0 +1,10 @@
+{
+  "name": "@sisuwellness/qrisk3",
+  "version": "1.0.0",
+  "description": "Javasscdript port for QRSIK3-2017",
+  "main": "index.js",
+  "repository": "https://hossein-salehi@bitbucket.org/hossein-salehi/qrisk3.git",
+  "author": "Hossein Salehi <hossein@sisuwellness.com>",
+  "license": "LGPL-3.0",
+  "private": true
+}
