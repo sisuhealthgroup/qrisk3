@@ -29,4 +29,29 @@ describe("QRISK-3 tests", () => {
 
         expect(score).toBeCloseTo(18.11, 2);
     });
+
+    it("calculateScore() Should correctly calculate the qrisk score for a typical male ", () => {
+        const { Sex, Ethnicity, DiabetesStatus, SmokingStatus } = inputBuilder;
+        const aboutYou = inputBuilder.buildAboutYou(75, Sex.male, Ethnicity.white);
+        const clinical = inputBuilder.buildClinical(
+            SmokingStatus.nonSmoker,
+            DiabetesStatus.none,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        );
+        const bmi = 70 / (1.7 * 1.7);
+        const biometric = inputBuilder.buildBiometrics(4, 120, 10, bmi);
+        const qriskInput = inputBuilder.buildQriskInput(aboutYou, clinical, biometric);
+        const score = calculateScore(qriskInput);
+
+        expect(score).toBeCloseTo(24.59, 2);
+    });
 });
