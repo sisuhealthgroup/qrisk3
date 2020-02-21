@@ -1,2 +1,4 @@
 require("@babel/register");
-require("./src/qrisk3");
+const qrisk3 = require("./src/qrisk3");
+
+module.exports = qrisk3;
