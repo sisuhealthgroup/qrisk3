@@ -26,7 +26,7 @@ const buildQriskInput = (aboutYou, clinical, biometric) => {
         systolicBloodPressure: biometric.systolicBloodPressure,
         systolicStandardDeviation: biometric.systolicStandardDeviation,
         smokerStatus: clinical.smokingStatus,
-        survivorSpan: 10, // Unknown to me :)
+        survivorSpan: 10, // Only works with 10!
         townsendScore: 0 // Should be calculated externally
     };
 
