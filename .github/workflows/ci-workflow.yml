@@ -1,5 +1,5 @@
 
-name: default-build
+name: build
 on: [push]
 jobs:
   build:
