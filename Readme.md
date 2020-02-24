@@ -19,9 +19,15 @@ Two steps are involved:
 const qrisk = require("sisuwellness-qrisk3");
 
 // 1. build the qriskInput object
-const {calculateScore, inputBuilder} = qrisk;
+const age = 75;
+const weightKg = 70;
+const heightMeter = 1.7;
+const bmi = weightKg / (heightMeter * heightMeter);
+
+const { calculateScore, inputBuilder } = qrisk;
 const { Sex, Ethnicity, DiabetesStatus, SmokingStatus } = inputBuilder;
-const aboutYou = inputBuilder.buildAboutYou(75, Sex.female, Ethnicity.white);
+const aboutYou = inputBuilder.buildAboutYou(age, Sex.female, Ethnicity.white);
+const biometric = inputBuilder.buildBiometrics(4, 120, 10, bmi);
 const clinical = inputBuilder.buildClinical(
     SmokingStatus.nonSmoker,
     DiabetesStatus.none,
@@ -36,8 +42,6 @@ const clinical = inputBuilder.buildClinical(
     false,
     false
 );
-const bmi = 70 / (1.7 * 1.7);
-const biometric = inputBuilder.buildBiometrics(4, 120, 10, bmi);
 const qriskInput = inputBuilder.buildQriskInput(aboutYou, clinical, biometric);
 
 // 2. calculate the score
