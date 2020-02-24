@@ -4,7 +4,7 @@
   "description": "Javasscdript port of QRSIK3-2017",
   "main": "build/index.js",
   "repository": "https://github.com/sisuhealthgroup/qrisk3.git",
-  "author": "Hossein Salehi <hossein@sisuwellness.com>",
+  "author": "Hossein Salehi <aerocov@gmail.com>",
   "license": "LGPL-3.0",
   "scripts": {
     "start:dev": "nodemon index.js",
