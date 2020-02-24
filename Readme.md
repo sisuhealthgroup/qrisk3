@@ -8,8 +8,11 @@ npm install sisuwellness-qrisk3
 ```
 
 ### Usage
-Two steps are involved. First you should build the input using the helper method and constants provided (although you can do it completely manually). Secondly, 
-you simply call `calculateScore` method with the created input. Here is a complete example.
+Two steps are involved:
+ 1. Build the input object using the helper method (although you can do it manually).
+ 2. Call `calculateScore` method with input object.
+ 
+ **Example:**
 
 ```bash
 const qrisk = require("sisuwellness-qrisk3");

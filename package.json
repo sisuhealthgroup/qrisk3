@@ -1,15 +1,15 @@
 {
   "name": "sisuwellness-qrisk3",
   "version": "1.0.0",
-  "description": "Javasscdript port for QRSIK3-2017",
+  "description": "Javasscdript port of QRSIK3-2017",
   "main": "build/index.js",
-  "repository": "https://hossein-salehi@bitbucket.org/hossein-salehi/qrisk3.git",
+  "repository": "https://github.com/sisuhealthgroup/qrisk3.git",
   "author": "Hossein Salehi <hossein@sisuwellness.com>",
   "license": "LGPL-3.0",
   "scripts": {
     "start:dev": "nodemon index.js",
     "test": "jest",
-    "build": "babel src --out-dir build --ignore 'src/**/*.test.js' ",
+    "build": "babel src --out-dir build --ignore 'src/**/*.test.js'",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
