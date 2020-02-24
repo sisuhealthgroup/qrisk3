@@ -1,7 +1,7 @@
 #QRISK®3-2017
 A javascript port of [QRISK®3](https://qrisk.org/three/index.php). The QRISK®3 algorithm calculates a person's risk of developing a heart attack or stroke over the next 10 years. It presents the average risk of people with the same risk factors as those entered for that person.
 
-![](https://github.com/sisuhealthgroup/qrisk3/workflows/default-build/badge.svg)
+![](https://github.com/sisuhealthgroup/qrisk3/workflows/build/badge.svg)
 
 ### Installation
 ```bash
