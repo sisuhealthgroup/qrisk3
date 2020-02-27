@@ -1,6 +1,6 @@
 {
   "name": "sisuwellness-qrisk3",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Javasscdript port of QRSIK3-2017",
   "main": "build/index.js",
   "repository": "https://github.com/sisuhealthgroup/qrisk3.git",
