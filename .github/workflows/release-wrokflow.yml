@@ -14,18 +14,11 @@ jobs:
           node-version: "10.x"
           registry-url: "https://registry.npmjs.org/"
 
-      - name: Install dependencies
-          run: yarn
 
-      - name: Run linter
-        run: yarn lint
-
-      - name: Run tests
-        run: yarn test
-
-      - name: Build
-        run: yarn build
-
+      - run: yarn install
+      - run: yarn lint
+      - run: yarn test
+      - run: yarn build
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
