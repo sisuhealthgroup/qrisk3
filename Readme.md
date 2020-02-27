@@ -184,6 +184,7 @@ const score = calculateScore(qriskInput);
 
 ```
 
+> Note: `townsendScore` is set to 0 by default and not exposed. This will remain unchanged until deciding on an appropriate approach.
 
 ### License
 GNU Lesser General Public License Version 3.0. See LICENSE.
