@@ -42,7 +42,8 @@ const clinical = inputBuilder.buildClinical(
     false,
     false
 );
-const qriskInput = inputBuilder.buildQriskInput(aboutYou, clinical, biometric, 0);
+const townsendScore = 0;
+const qriskInput = inputBuilder.buildQriskInput(aboutYou, clinical, biometric, townsendScore);
 
 // 2. calculate the score
 const score = calculateScore(qriskInput);

@@ -24,7 +24,8 @@ describe("QRISK-3 tests", () => {
         );
         const bmi = 70 / (1.7 * 1.7);
         const biometric = inputBuilder.buildBiometrics(4, 120, 10, bmi);
-        const qriskInput = inputBuilder.buildQriskInput(aboutYou, clinical, biometric, 0);
+        const townsendScore = 0;
+        const qriskInput = inputBuilder.buildQriskInput(aboutYou, clinical, biometric, townsendScore);
         const score = calculateScore(qriskInput);
 
         expect(score).toBeCloseTo(18.11, 2);
@@ -49,7 +50,8 @@ describe("QRISK-3 tests", () => {
         );
         const bmi = 70 / (1.7 * 1.7);
         const biometric = inputBuilder.buildBiometrics(4, 120, 10, bmi);
-        const qriskInput = inputBuilder.buildQriskInput(aboutYou, clinical, biometric, 0);
+        const townsendScore = 0;
+        const qriskInput = inputBuilder.buildQriskInput(aboutYou, clinical, biometric, townsendScore);
         const score = calculateScore(qriskInput);
 
         expect(score).toBeCloseTo(24.59, 2);
