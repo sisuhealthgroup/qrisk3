@@ -1,11 +1,17 @@
 {
   "name": "sisuwellness-qrisk3",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Javasscdript port of QRSIK3-2017",
   "main": "build/index.js",
   "repository": "https://github.com/sisuhealthgroup/qrisk3.git",
   "author": "Hossein Salehi <aerocov@gmail.com>",
   "license": "LGPL-3.0",
+  "keywords": [
+    "qrisk",
+    "QRISK-3",
+    "heart attack",
+    "stroke"
+  ],
   "scripts": {
     "start:dev": "nodemon index.js",
     "test": "jest",
