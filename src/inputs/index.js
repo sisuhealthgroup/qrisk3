@@ -2,7 +2,7 @@ import { Ethnicity, Sex, buildAboutYou } from "./aboutYou";
 import { buildBiometrics } from "./biometric";
 import { SmokingStatus, DiabetesStatus, buildClinical } from "./clinical";
 
-const buildQriskInput = (aboutYou, clinical, biometric) => {
+const buildQriskInput = (aboutYou, clinical, biometric, townsendScore = 0) => {
     // Order here matches the original method
     const qriskInput = {
         sex: aboutYou.sex,
@@ -27,7 +27,7 @@ const buildQriskInput = (aboutYou, clinical, biometric) => {
         systolicStandardDeviation: biometric.systolicStandardDeviation,
         smokerStatus: clinical.smokingStatus,
         survivorSpan: 10, // Only works with 10!
-        townsendScore: 0 // Should be calculated externally
+        townsendScore
     };
 
     return qriskInput;

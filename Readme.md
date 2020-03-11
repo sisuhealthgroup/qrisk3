@@ -42,7 +42,8 @@ const clinical = inputBuilder.buildClinical(
     false,
     false
 );
-const qriskInput = inputBuilder.buildQriskInput(aboutYou, clinical, biometric);
+const townsendScore = 0;
+const qriskInput = inputBuilder.buildQriskInput(aboutYou, clinical, biometric, townsendScore);
 
 // 2. calculate the score
 const score = calculateScore(qriskInput);
@@ -168,7 +169,7 @@ const score = calculateScore(qriskInput);
     familyAnginaOrHeartAttack: boolean,
     
     // Total cholesterol: high density lipoprotein cholesterol ratio
-    cholesterolHdlRatio: biometric.cholesterolHdlRatio,
+    cholesterolHdlRatio: number,
     
     // Systolic blood pressure, mmHg
     systolicBloodPressure: number,
@@ -183,8 +184,6 @@ const score = calculateScore(qriskInput);
     townsendScore: number
 
 ```
-
-> Note: `townsendScore` is set to 0 by default and not exposed. This will remain unchanged until deciding on an appropriate approach.
 
 ### License
 GNU Lesser General Public License Version 3.0. See LICENSE.
