@@ -169,4 +169,104 @@ describe("QRISK-3 tests", () => {
             expect(parseFloat(score.toFixed(2))).toBeCloseTo(expectedScore, 0);
         }
     );
+
+    const delta2 = 0;
+    const q1Clinical = [false, false, false, true, false, false, false, false];
+    const q1 = [
+        "M1 6FQ",
+        3.9159305 + delta2,
+        Sex.male,
+        70,
+        179,
+        74,
+        114,
+        Ethnicity.indian,
+        DiabetesStatus.type1,
+        SmokingStatus.nonSmoker,
+        4.5,
+        ...q1Clinical,
+        64.8
+    ];
+
+    const q2Clinical = [false, true, false, true, false, false, false, false];
+    const q2 = [
+        "M12 6BF",
+        9.2671455 + delta2,
+        Sex.male,
+        50,
+        165,
+        74,
+        133,
+        Ethnicity.white,
+        DiabetesStatus.none,
+        SmokingStatus.lightSmoker,
+        6.7,
+        ...q2Clinical,
+        38.9
+    ];
+
+    const q4Clinical = [true, false, false, false, false, false, true, true];
+    const q4 = [
+        "M11 3NA",
+        5.2524922 + delta2,
+        Sex.female,
+        30,
+        172,
+        63,
+        108,
+        Ethnicity.white,
+        DiabetesStatus.type1,
+        SmokingStatus.nonSmoker,
+        9.9,
+        ...q4Clinical,
+        81.9
+    ];
+    const testCase4 = [q1, q2, q4];
+    it.each(testCase4)(
+        "Case: %p, %p, %p, %p, %p, %p, %p, %p, %p, %p, %p, %p",
+        (
+            postcode,
+            townsendScore,
+            sex,
+            age,
+            height,
+            weight,
+            systolic,
+            ethnicity,
+            diabetes,
+            smokingStatus,
+            chdl,
+            bpMed,
+            angina,
+            kidney,
+            afib,
+            migraine,
+            arthritis,
+            lupus,
+            steroid,
+            expectedScore
+        ) => {
+            const aboutYou = inputBuilder.buildAboutYou(age, sex, ethnicity);
+            const clinical = inputBuilder.buildClinical(
+                smokingStatus,
+                diabetes,
+                angina,
+                kidney,
+                afib,
+                bpMed,
+                migraine,
+                arthritis,
+                lupus,
+                false,
+                false,
+                steroid
+            );
+
+            const bmi = weight / (height * height * 0.01 * 0.01);
+            const biometric = inputBuilder.buildBiometrics(chdl, systolic, 0, bmi);
+            const qriskInput = inputBuilder.buildQriskInput(aboutYou, clinical, biometric, townsendScore);
+            const score = calculateScore(qriskInput);
+            expect(parseFloat(score.toFixed(2))).toBeCloseTo(expectedScore, 0);
+        }
+    );
 });
