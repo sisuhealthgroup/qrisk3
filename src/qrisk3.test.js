@@ -67,8 +67,8 @@ describe("QRISK-3 tests", () => {
         [35, Sex.female, Ethnicity.white, 3.5, 0.4]
     ];
     it.each(testCase1)(
-        "calculateScore()-white: [sys:120, sysVar:10, height:170, weight:70, ethnicity:white, townsendSCore:0]\-" +
-        "--[age:%p, sex:%p, ethnicity:%p, chdl:%p] ==> qriskScore:%p",
+        "calculateScore()-white: [sys:120, sysVar:10, height:170, weight:70, townsendSCore:0]-" +
+            "--[age:%p, sex:%p, ethnicity:%p, chdl:%p] ==> qriskScore:%p",
         (age, sex, ethnicity, chdl, expectedScore) => {
             const aboutYou = inputBuilder.buildAboutYou(age, sex, ethnicity);
             const clinical = inputBuilder.buildClinical(
@@ -106,8 +106,8 @@ describe("QRISK-3 tests", () => {
         [35, Sex.female, Ethnicity.chinese, 3.5, 0.3]
     ];
     it.each(testCase2)(
-        "calculateScore()-non-whites: [sys:120, sysVar:10, height:170, weight:70, ethnicity:white, townsendSCore:0]\-" +
-        "--[age:%p, sex:%p, ethnicity:%p, chdl:%p] ==> qriskScore:%p",
+        "calculateScore()-non-whites: [sys:120, sysVar:10, height:170, weight:70, townsendSCore:0]-" +
+            "--[age:%p, sex:%p, ethnicity:%p, chdl:%p] ==> qriskScore:%p",
         (age, sex, ethnicity, chdl, expectedScore) => {
             const aboutYou = inputBuilder.buildAboutYou(age, sex, ethnicity);
             const clinical = inputBuilder.buildClinical(
@@ -131,6 +131,42 @@ describe("QRISK-3 tests", () => {
             const score = calculateScore(qriskInput);
 
             expect(parseFloat(score.toFixed(1))).toBeCloseTo(expectedScore, 1);
+        }
+    );
+
+    const delta = -0.9;
+    const testCase3 = [
+        [45, Sex.female, Ethnicity.white, "CR26XH", 1.297155 + delta, 1.3],
+        [45, Sex.female, Ethnicity.white, "E28AA", 6.8937 + delta, 1.9],
+        [45, Sex.female, Ethnicity.pakistani, "SW1A1AA", 2.2624 + delta, 2.3],
+        [45, Sex.male, Ethnicity.indian, "E28AA", 6.8937 + delta, 3.5],
+        [75, Sex.male, Ethnicity.indian, "E28AA", 6.8937 + delta, 30.2]
+    ];
+    it.each(testCase3)(
+        "calculateScore()-townsend: [sys:120, sysVar:10, height:170, weight:70, chdl: 4]-" +
+            "--[age:%p, sex:%p, ethnicity:%p, postcode:%p, townsendScore:%p:] ==> qriskScore:%p",
+        (age, sex, ethnicity, postcode, townsendScore, expectedScore) => {
+            const aboutYou = inputBuilder.buildAboutYou(age, sex, ethnicity);
+            const clinical = inputBuilder.buildClinical(
+                SmokingStatus.nonSmoker,
+                DiabetesStatus.none,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+            );
+            const bmi = 70 / (1.7 * 1.7);
+            const biometric = inputBuilder.buildBiometrics(4, 120, 0, bmi);
+            const qriskInput = inputBuilder.buildQriskInput(aboutYou, clinical, biometric, townsendScore);
+            const score = calculateScore(qriskInput);
+
+            expect(parseFloat(score.toFixed(2))).toBeCloseTo(expectedScore, 0);
         }
     );
 });
