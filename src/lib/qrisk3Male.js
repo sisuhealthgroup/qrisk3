@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /**
  * Copyright 2017 ClinRisk Ltd.
  *

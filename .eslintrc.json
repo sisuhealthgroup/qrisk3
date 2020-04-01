@@ -7,7 +7,8 @@
     "extends": ["eslint:recommended", "plugin:node/recommended"],
     "parser": "babel-eslint",
     "parserOptions": {
-        "sourceType": "module"
+        "sourceType": "module",
+        "ecmaVersion": 2018
     },
     "plugins": ["node","jest", "prettier", "jsdoc"],
     "rules": {
@@ -16,7 +17,7 @@
         "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
         "camelcase": [1, { "properties": "always" }],
         "prettier/prettier": "error",
-        "node/no-unsupported-features/es-syntax": 1,
+        "node/no-unsupported-features/es-syntax": 0,
         "node/no-unpublished-require": 1
     }
 }
